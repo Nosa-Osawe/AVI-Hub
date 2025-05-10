@@ -45,7 +45,11 @@ dd.month.2 <- dd.month.1 %>%
          Notes=  "Notes from data collector",
          Host_group = "Animals",
          Host_SCname = "Animal_species",
-         survey_period = "Year of survey")
+         survey_period = "Year of survey")%>%
+  mutate(
+    survey_period = map_chr(survey_period, ~ ifelse(is.null(.x) || is.na(.x), 
+                                                    "N.S", as.character(.x)))
+  )
   
 
 
@@ -60,7 +64,7 @@ dd.surv <- dd.month.2 %>%
   select(-years) %>%
   ungroup()
 
-view(dd.surv)
+# view(dd.surv)
   
 
 dd.geo  <- dd.surv %>%
@@ -75,7 +79,7 @@ dd.geo  <- dd.surv %>%
     latitude_clean = ifelse(str_detect(Latitude, "S"), 
                             latitude_clean * -1, 
                             latitude_clean)
-  ) 
+  ) %>% as.data.frame()
 
 View(dd.geo)
 
@@ -87,16 +91,13 @@ dd.geo %>%
 
 unique(dd.geo$Tick_species) %>% 
   sort() %>% 
-  view()
+  view()  # View tick species to see if they were entered correctly 
 
 unique(dd.geo$Host_SCname) %>% 
   sort() %>% 
-  view()
+  view()   # view host species to see if they are entered correctly
 
-dd.geo_final <- dd.geo %>% 
-  select(-survey_period) %>% 
-  as.data.frame() # survey_period is a List, so remove- else won't write.csv
 
-write.csv(x = dd.geo_final, file = "C:\\Users\\DELL\\Desktop\\enoch.csv")
+write.csv(x = dd.geo, file = "C:\\Users\\DELL\\Desktop\\enoch.csv")
 
 
