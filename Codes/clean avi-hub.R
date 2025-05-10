@@ -9,10 +9,7 @@ gs4_auth() # You need this to authenticate the google sheet
 W.Enoch <- read_sheet("https://docs.google.com/spreadsheets/d/1mKCD-FHixwMZxUcny2UeyLAk353QCoTzcXdrIkD9W7Y/edit?usp=sharing",
                       sheet = "Enoch") %>% 
   rename(Month = 'Month(s)') %>% 
-  separate(Month, into = c("m1", "m2", "m3",
-                           "m4", "m5", "m6",
-                           "m7", "m8", "m9",
-                           "m10", "m11", "m12"), sep = ",") # Similar separate function would be used
+  separate(Month, into = paste0("m", 1:12), sep = ",") # Similar separate function would be used
                               # to split the tick_species into Species and Genus columns
 # view(W.Enoch)
 
