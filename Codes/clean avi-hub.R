@@ -14,7 +14,7 @@ W.Enoch <- read_sheet("https://docs.google.com/spreadsheets/d/1mKCD-FHixwMZxUcny
 # view(W.Enoch)
 
 dd.month.1 <- W.Enoch%>%
-  rowwise() %>%
+  rowwise() %>% # rowwsise ensures works per row and does it independently
   mutate(
         January = sum(c_across(m1:m12) == "Jan", na.rm = TRUE),
          February = sum(c_across(m1:m12) == " Feb", na.rm = TRUE),
@@ -29,7 +29,7 @@ dd.month.1 <- W.Enoch%>%
          November =  sum(c_across(m1:m12) == " November", na.rm = TRUE),
          December = sum(c_across(m1:m12) == " December", na.rm = TRUE)
         ) %>%
-  ungroup()
+  ungroup() # is necessary to remove the rowwise() grouping
 
 # renaming some columns
 
