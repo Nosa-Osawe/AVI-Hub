@@ -93,6 +93,6 @@ AVIHub_cleaner( # for our east africa data
   sheet_name = "Ismail",
   Save_file_path =  "C:\\Users\\DELL\\Desktop\\practice2.csv")
 
-# --------------------- you can still create the object to your PC as usual
+# --------------------- you can still create the object to your R as usual
 ismail_East.A <- read.csv("C:\\Users\\DELL\\Desktop\\practice2.csv")
 # view(ismail_East.A)
