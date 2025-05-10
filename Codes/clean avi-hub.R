@@ -43,10 +43,7 @@ dd.month.2 <- dd.month.1 %>%
          Host_group = "Animals",
          Host_SCname = "Animal_species",
          survey_period = "Year of survey")%>%
-  mutate(
-    survey_period = map_chr(survey_period, ~ ifelse(is.null(.x) || is.na(.x), 
-                                                    "N.S", as.character(.x)))
-  )
+  mutate(survey_period = ifelse(is.na(survey_period), "N.S", as.character(survey_period)))
   
 
 
