@@ -6,6 +6,9 @@ library(googlesheets4)
 
 # gs4_auth() # You need this to authenticate the google sheet
 
+
+
+
 W.Enoch <- read_sheet("https://docs.google.com/spreadsheets/d/1mKCD-FHixwMZxUcny2UeyLAk353QCoTzcXdrIkD9W7Y/edit?usp=sharing",
                       sheet = "Hazel") %>% 
   rename(Month = 'Month(s)') %>% 
@@ -92,4 +95,7 @@ unique(dd.geo$Host_SCname) %>%
   view()   # view host species to see if they are entered correctly
 
 
-write.csv(x = dd.geo, file = "/Users/aia/Desktop/Tick/Data9.csv")
+write.csv(x = dd.geo, file = "/Users/user/Desktop/Data Science Library/Data for play/AVI-Hub/Codes/Ismail /Raw Data/Data9.csv")
+
+
+
