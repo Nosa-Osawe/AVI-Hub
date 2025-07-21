@@ -8,7 +8,7 @@ gs4_auth() # You need this to authenticate the google sheet
 # list of sheet names: Roseline, Esther, Pelumi.Samuel, Ismail, Enoch, Favour, Liberia, Hazel
 
 W.Enoch <- read_sheet("https://docs.google.com/spreadsheets/d/1mKCD-FHixwMZxUcny2UeyLAk353QCoTzcXdrIkD9W7Y/edit?usp=sharing",
-                      sheet = "Hazel") %>% 
+                      sheet = "Hazel") %>%
   rename(Month = 'Month(s)') %>% 
   separate(Month, into = paste0("m", 1:12), sep = ",") # Similar separate function would be used
 # to split the tick_species into Species and Genus columns
@@ -91,7 +91,6 @@ unique(dd.geo$Tick_species) %>%
 unique(dd.geo$Host_SCname) %>% 
   sort() %>% 
   view()   # view host species to see if they are entered correctly
-
 
 write.csv(x = dd.geo, file = "/Users/user/Desktop/Data Science Library/Data for play/AVI-Hub/Codes/Ismail /Raw Data/Data8.csv")
 
