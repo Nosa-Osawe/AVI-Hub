@@ -92,7 +92,7 @@ unique(dd.geo$Host_SCname) %>%
   sort() %>% 
   view()   # view host species to see if they are entered correctly
 
-write.csv(x = dd.geo, file = "/Users/user/Desktop/Data Science Library/Data for play/AVI-Hub/Codes/Ismail /Raw Data/Data8.csv")
+write.csv(x = dd.geo, file =  "/Users/Esmael/Desktop/Data Science Library/Data for play/AVI-Hub/Ismail/Raw Data/11.csv")
 
 
 
