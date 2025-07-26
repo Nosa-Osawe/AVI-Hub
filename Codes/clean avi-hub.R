@@ -73,7 +73,9 @@ dd.geo  <- dd.surv %>%
     latitude_clean = ifelse(str_detect(Latitude, "S"), 
                             latitude_clean * -1, 
                             latitude_clean)
-  ) %>% as.data.frame()
+  ) %>% 
+  mutate(Pages = as.character(Pages)) %>% 
+  as.data.frame()
 
 View(dd.geo)
 
