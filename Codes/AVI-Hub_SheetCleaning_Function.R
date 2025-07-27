@@ -61,7 +61,8 @@ AVIHub_cleaner <- function(GoggleSheetLink,
       mutate(
         longitude_clean = ifelse(str_detect(Longitude, "W"), -1 * longitude_clean, longitude_clean),
         latitude_clean = ifelse(str_detect(Latitude, "S"), -1 * latitude_clean, latitude_clean)
-      ) %>%
+      ) %>% 
+      mutate(Pages = as.character(Pages)) %>% 
       as.data.frame() %>%
       write.csv(file = Save_file_path)
   }))
