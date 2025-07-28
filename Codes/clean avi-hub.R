@@ -99,4 +99,3 @@ unique(dd.geo$Host_SCname) %>%
 
 write.csv(x = dd.geo, file = "C:\\Users\\DELL\\Desktop\\enoch.csv")
 
-
