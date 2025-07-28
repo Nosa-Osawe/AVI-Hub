@@ -6,8 +6,10 @@ library(googlesheets4)
 
 gs4_auth() # You need this to authenticate the google sheet
 
+# list of sheet names for West Africa data: Roseline, Esther, Pelumi.Samuel, Ismail, Enoch, Favour, Liberia, Hazel
+
 W.Enoch <- read_sheet("https://docs.google.com/spreadsheets/d/1mKCD-FHixwMZxUcny2UeyLAk353QCoTzcXdrIkD9W7Y/edit?usp=sharing",
-                      sheet = "Enoch") %>% 
+                      sheet = "Hazel") %>% 
   rename(Month = 'Month(s)') %>% 
   separate(Month, into = paste0("m", 1:12), sep = ",") # Similar separate function would be used
                               # to split the tick_species into Species and Genus columns
@@ -74,12 +76,13 @@ dd.geo  <- dd.surv %>%
                             latitude_clean * -1, 
                             latitude_clean)
   ) %>% 
-  mutate(Pages = as.character(Pages)) %>% 
+  mutate(Pages = as.character(Pages), 
+         Number = as.character(Number)) %>% 
   as.data.frame()
 
 View(dd.geo)
 
-
+str(dd.geo)
 dd.geo %>% 
   select(Longitude, longitude_clean, Latitude, latitude_clean) %>% 
   view()
